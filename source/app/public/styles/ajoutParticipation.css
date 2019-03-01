@@ -1,0 +1,13 @@
+.container1 {
+    background: #fff;
+    /* width:300px; */
+    height: 300px;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.custom-control {
+    padding: 5px 35px;
+    height: initial;
+    border: none;
+}

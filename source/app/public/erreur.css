@@ -1,0 +1,29 @@
+html, body {
+    height: 100%;
+}
+
+.noselect {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+ 
+    /*
+      Introduced in IE 10.
+      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+    */
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+#container {
+    margin: 0 auto;
+    padding-top: 100px;
+    font-size: 20px;
+
+    
+}
+
+.code {
+    font-size: 140px;
+    margin-bottom: -15px;
+}

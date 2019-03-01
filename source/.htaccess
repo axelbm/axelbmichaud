@@ -1,0 +1,10 @@
+RewriteEngine On
+ 
+Options -Indexes
+
+
+RewriteCond %{REQUEST_URI} /public/
+RewriteRule ^public/(.*)$ app/public/$1 [L]
+
+RewriteCond %{REQUEST_URI} !/public/
+RewriteRule ^([a-zA-Z0-9\-\_\/\.]*)$ rooter.php?params=$1 [QSA]

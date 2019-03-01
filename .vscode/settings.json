@@ -1,0 +1,12 @@
+{
+    "cSpell.language": "fr,en",
+    "cSpell.ignoreRegExpList": [
+        ""
+    ],
+    "cSpell.includeRegExpList": [
+        "\\/\\*\\*[\\w\\W]+?\\*\\/",
+        "\\/\\/(?!.*(;)).*",
+        "^[\\w\\W]+?<\\?",
+        "\\?>[\\w\\W]+?<\\?"
+    ]
+}

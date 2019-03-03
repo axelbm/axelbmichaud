@@ -1,5 +1,10 @@
 <?php
 
+if (version_compare(PHP_VERSION, '7.2.0') < 0) {
+    echo '<h1>La version de php doit est au minimum 7.2.0.</h1>';
+    exit;
+}
+
 date_default_timezone_set ("America/New_York");
 
 require "config_systeme.php";

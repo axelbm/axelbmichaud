@@ -1,0 +1,71 @@
+body {
+    font-family: sans-serif;
+  }
+
+.project {
+    /* margin-top: 40px; */
+    background: #fff;
+    border-top: solid 10px;
+    border-top-color: #27a;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.circle {
+    width: 140px;
+    height: 140px;
+    background: #49f;
+    border-radius: 80px;
+
+    position: absolute;
+    margin-left: -70px;
+}
+.line {
+    width: 60px;
+    height: 100%;
+    background: #27a;
+
+    position: absolute;
+    margin-top: 70px;
+    margin-left: -30px;
+}
+
+.projects-list {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.section h1 {
+    margin-top: 18px;
+}
+
+.section {
+    padding-top: 10px;
+    color: #444;
+}
+
+@media screen {
+    .circle,
+    .line {
+        left: 50%;
+    }
+
+    .section h1 {
+        text-align: center;
+    }
+    }
+    @media screen and (max-width: 768px) {
+    .circle,
+    .line {
+        left: inherit;
+    }
+
+    .section h1 {
+        text-align: inherit;
+        margin-left: -20px;
+    }
+}
+
+.project img {
+    width: inherit;
+}

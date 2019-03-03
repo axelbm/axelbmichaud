@@ -9,25 +9,28 @@
 					<img src="<?= PUBLICROOT.'images/logo blanc.png'?>" alt="Logo" style="height: 30px; margin: 5px 10px 5px 0px;">
 				</a>
 				<li class="nav-item">
-					<a class="nav-link text-light" href="<?=WEBROOT?>">Accueil</a>
+					<a class="nav-link text-light" href="<?=WEBROOT.'blog'?>">Blog</a>
 				</li>
 
-				<?php if (isset($utilisateur)): ?>
-					<li class="nav-item">
-						<a class="nav-link text-light" href="<?=WEBROOT?>calendrier">Réunions</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-light" href="<?=WEBROOT?>dossiers">Dossiers</a>
-					</li>
-				<?php endif ?>
+				<li class="nav-item">
+					<a class="nav-link text-light" href="<?=WEBROOT.'projet'?>">Projets</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-light" href="<?=WEBROOT.'tutoriel'?>">Tutoriels</a>
+				</li>
 				
 				
 				<li class="nav-item">
-					<a class="nav-link text-light" href="<?=WEBROOT?>nouscontacter">Nous contacter</a>
+					<a class="nav-link text-light" href="<?=WEBROOT?>apropos">À-propos</a>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link text-light" href="<?=WEBROOT?>mecontacter">Me contacter</a>
 				</li>
 
 				<?php if (isset($utilisateur) && $utilisateur->estAdministrateur()): ?>
-					<li class="nav-item dropdown">
+					<!-- <li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle text-light" href="#" id="navbardrop" data-toggle="dropdown">
 							Administration
 						</a>
@@ -38,7 +41,7 @@
 								<a class="dropdown-item" href="<?=WEBROOT?>superAdmin">Super Admin</a>
 							<?php endif ?>
 						</div>
-					</li>
+					</li> -->
 					
 				<?php endif ?>
 			</ul>

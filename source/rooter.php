@@ -23,15 +23,19 @@ core\Session::initializer();
 // Analyse du formulaire
 core\MainForm::trouverForm();
 
-// Extrait les paramettre du url
+// Extrait les paramètres du url
 $params = explode('/', $_GET['params']);
 $action = array_shift($params);
 
-// Si il n'y a aucun action, l'action par defaut va etre chargé
+if (end($params) == '') {
+    array_pop($params);
+}
+
+// Si il n'y a aucun action, l'action par défaut va être chargé
 if ($action == "") {
     $action = ACCUEIL;
 }
-// Bypass le controleur pour les tests
+// Bypass le contrôleur pour les tests
 elseif ($action == "_test") {
     $action = array_shift($params);
 

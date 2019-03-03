@@ -281,13 +281,14 @@ abstract class DAO {
         $stmt = Database::prepare($requete, ...$input);
 
         $stmt->execute();
-
-        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
+        
         $objs = [];
 
-        foreach ($result as $params)
-            array_push($objs, $this->charger($params));
+        $modele = "\\app\\modeles\\".Util::className(get_called_class());
+
+        while ($result = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            array_push($objs, $modele::toObject($result, true));
+        }
 
         return $objs;
     }
@@ -339,4 +340,10 @@ abstract class DAO {
 
         return $modele::toObject($params, true);
     }
+
+
+
+    public function getTable() : string {
+        return $this->table;
+    } 
 }

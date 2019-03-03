@@ -105,6 +105,8 @@ abstract class Database {
 				return new \DateTime($var);
 			case 'int':
 				return intval($var);
+			case 'array':
+				return explode(",", $var);
 			
 			default:
 				return $var;
@@ -124,6 +126,8 @@ abstract class Database {
 				return $var ? 1 : 0;
 			case 'DateTime':
 				return $var->format('Y-m-d H:i:s');
+			case 'array':
+				return implode(",", $var);
 			
 			default:
 				return $var;

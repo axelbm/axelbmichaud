@@ -2,7 +2,7 @@
 
 namespace core;
 
-abstract class Controleur {
+abstract class Controleur extends MainControleur {
     protected $vue;
 
     function __construct (){

@@ -2,6 +2,8 @@
 
 namespace app\controleurs;
 
+use exceptions\Erreur404;
+
 class Projet extends \core\Controleur {
 	use atraits\Utilisateur;
 

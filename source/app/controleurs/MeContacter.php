@@ -2,12 +2,14 @@
 
 namespace app\controleurs;
 
+use exceptions\Erreur404;
+
 class MeContacter extends \core\Controleur {
 	use atraits\Utilisateur;
 
 	public function action(array $args) : ?\Exception {
-			return new \Exception("erreur 404", 404);
 		if ($this->route(""))
+			return new Erreur404();
 
 		$vue = $this->genererVue("accueil");
 			

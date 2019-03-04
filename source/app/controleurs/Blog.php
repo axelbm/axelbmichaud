@@ -2,6 +2,9 @@
 
 namespace app\controleurs;
 
+use exceptions\Erreur404;
+use \app\modeles;
+
 class Blog extends \core\Controleur {
 	use atraits\Utilisateur;
 
@@ -19,7 +22,7 @@ class Blog extends \core\Controleur {
 			return $this->modifier($this->blog);
 		}
 		
-		return new \Exception("erreur 404", 404);
+		return new Erreur404();
 	}
 
 

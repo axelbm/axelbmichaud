@@ -2,6 +2,8 @@
 
 namespace app\controleurs;
 
+use exceptions\Erreur404;
+
 class Tutoriel extends \core\Controleur {
 	use atraits\Utilisateur;
 

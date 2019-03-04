@@ -10,7 +10,11 @@ abstract class DAO {
     protected $parsedProprietes = null;
 
     static public function __callStatic($key, $args) : DAO {
-        $daoClass = "\\app\\dao\\$key";
+        return self::get($key);
+    }
+    
+    static public function get(string $nom) : ?DAO {
+        $daoClass = "\\app\\dao\\$nom";
 
         if (\class_exists($daoClass)) {
             if (!isset(self::$instances[$daoClass]))

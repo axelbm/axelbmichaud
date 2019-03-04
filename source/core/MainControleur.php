@@ -18,7 +18,7 @@ abstract class MainControleur {
 	 * @param array $params
 	 */
 	static function executer(string $action, array $params) : void {
-		$controleurClass = "\\app\\controleurs\\" . ucfirst($action);
+		$controleurClass = "\\app\\controleurs\\" . $action;
 
 		if (self::exists($action)) {
 			$ctrl = new $controleurClass($params);
@@ -45,7 +45,7 @@ abstract class MainControleur {
 	 * @return boolean
 	 */
 	static function exists(string $action) : bool {
-		return \class_exists("\\app\\controleurs\\" . ucfirst($action));
+		return \class_exists("\\app\\controleurs\\" . $action);
 	}
 
 	static function executerErreur(\Exception $err) {

@@ -10,7 +10,7 @@
         <div class="projects-list">
             <div class="project col-md-6 shadow">
                 <img src="<?= PUBLICROOT."images/sample/1.jpg"?>">
-                "<?= PUBLICROOT."sample/1.jpg" ?>"
+                
                 <h2>Projet 1</h2>
 
                 <p>

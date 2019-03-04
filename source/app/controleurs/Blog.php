@@ -6,21 +6,17 @@ class Blog extends \core\Controleur {
 	use atraits\Utilisateur;
 
 	public function action(array $args) : ?\Exception {
-		if (count($args) == 0) {
+		if ($this->route("")) {
 			return $this->liste();
 		}
-		elseif (count($args) == 1) {
-			if (\is_numeric($args[0])) {
-				return $this->afficher(intval($args[0]));
-			}
-			elseif ($args[0] == "nouveau") {
-				return $this->nouveau();
-			}
+		elseif ($this->route("Blog:blog")) {
+			return $this->afficher($this->blog);
 		}
-		elseif (count($args) == 2) {
-			if ($args[0] == "modifier" && \is_numeric($args[1])) {
-				return $this->modifier(intval($args[1]));
-			}
+		elseif ($this->route("nouveau")) {
+			return $this->nouveau();
+		}
+		elseif ($this->route("modifier/Blog:blog")) {
+			return $this->modifier($this->blog);
 		}
 		
 		return new \Exception("erreur 404", 404);
@@ -38,7 +34,7 @@ class Blog extends \core\Controleur {
 		return null;
 	}
 	
-	private function afficher(int $id) : ?\Exception {
+	private function afficher(modeles\Blog $blog) : ?\Exception {
 		$vue = $this->genererVue("blog/afficher");
 			
 		$this->verifierUtilisateur();
@@ -48,7 +44,7 @@ class Blog extends \core\Controleur {
 		return null;
 	}
 	
-	private function modifier(int $id) : ?\Exception {
+	private function modifier(modeles\Blog $blog) : ?\Exception {
 		$vue = $this->genererVue("blog/modifier");
 			
 		$this->verifierUtilisateur();

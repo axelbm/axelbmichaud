@@ -6,7 +6,7 @@ class Projet extends \core\Controleur {
 	use atraits\Utilisateur;
 
 	public function action(array $args) : ?\Exception {
-		if (count($args) == 0) {
+		if ($this->route("")) {
 			return $this->liste();
         }
         

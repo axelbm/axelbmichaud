@@ -6,8 +6,8 @@ class MeContacter extends \core\Controleur {
 	use atraits\Utilisateur;
 
 	public function action(array $args) : ?\Exception {
-		if (count($args) > 0)
 			return new \Exception("erreur 404", 404);
+		if ($this->route(""))
 
 		$vue = $this->genererVue("accueil");
 			

@@ -21,7 +21,7 @@ abstract class MainControleur {
 		$controleurClass = "\\app\\controleurs\\" . ucfirst($action);
 
 		if (self::exists($action)) {
-			$ctrl = new $controleurClass();
+			$ctrl = new $controleurClass($params);
 
 			self::$instance = $ctrl;
 

@@ -25,9 +25,9 @@ class Commentaire extends Modele {
     protected $parent_type;
 
 
-    public  function __construct(string $auteur="", string $contenu="",  
+    public function __construct(string $auteur="", string $contenu="",  
                                  \DateTime $publication=null,
-                                 int $parent="", string $parent_type="") {
+                                 int $parent=null, string $parent_type="") {
 
         if (is_null($publication))
             $publication = new \DateTime();
@@ -40,7 +40,7 @@ class Commentaire extends Modele {
     }
 
     public function getCommentaires() : array {
-        return \core\DAO::Commentaire->getCommentairesParCommenataire($this);
+        return \core\DAO::Commentaire()->getCommentairesParCommenataire($this);
     }
 
     public function modifier(modeles\Utilisateur $utilisateur, string $titre, string $contenu) {

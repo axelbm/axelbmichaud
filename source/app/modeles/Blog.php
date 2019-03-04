@@ -37,7 +37,7 @@ class Blog extends Modele {
     protected $tags;
 
 
-    public  function __construct(string $auteur="", string $titre="", string $resume, string $contenu="",  
+    public  function __construct(string $auteur="", string $titre="", string $resume="", string $contenu="",  
                                  \DateTime $publication=null, \DateTime $modification=null,  
                                  string $categorie="", array $tags=[]) {
 
@@ -55,7 +55,7 @@ class Blog extends Modele {
     }
 
     public function getCommentaires() : array {
-        return \core\DAO::Commentaire->getCommentairesParBlog($this);
+        return \core\DAO::Commentaire()->getCommentairesParBlog($this);
     }
 
     public function modifier(modeles\Utilisateur $utilisateur, string $titre, string $contenu) {

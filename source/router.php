@@ -15,11 +15,14 @@ require COREROOT."AutoLoader.php";
 spl_autoload_register("core\AutoLoader::loader");
 
 // Connection a la base de données a l'aide des configs
-try {
-    core\Database::connect(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
-} catch (\Throwable $th) {
-    core\MainControleur::executerErreur(new \Exception("Base de données inaccessible...", 500));
-}
+// if ($config = \core\Config::charger("database.p")) {
+    try {
+        core\Database::connect(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
+    } catch (\Throwable $th) {
+        // core\MainControleur::executer("ConnexionDatabase", [], true);
+        core\MainControleur::executerErreur(new \Exception("Base de données inaccessible...", 500));
+    }
+// }
 
 // Initialisation de la session
 session_start();

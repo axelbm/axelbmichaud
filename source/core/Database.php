@@ -25,6 +25,10 @@ abstract class Database {
 		
 		self::$instance = $db;
 	}
+
+	static public function estConnecter() : bool {
+		return !\is_null(self::$instance);
+	}
 	
 	/**
 	 * Retourne l'instance PDO connecté de la base de donnée.

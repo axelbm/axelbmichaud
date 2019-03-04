@@ -5,10 +5,20 @@
 
     <hr>
 
-    <?php $f = new \core\FormView("admin\\Connexion"); ?>
+    <?php $f = new \core\FormView("admin\\PremiereConnexion"); ?>
     <form action="" method="post" role="form" class="p-2" id="login-frm">
 
         <input type="hidden" name="formid" value="<?= $f->id ?>">
+
+        <?php $e = $f->erreur("code") ?>
+        <div class="form-group" >
+            <input type="text" name="code" class="form-control <?=$e?'is-invalid':""?>" placeholder="Code de securité" value="<?= $f->get("code") ?>" required>
+            <?php if ($e): ?>
+                <div class="invalid-feedback"><?=$e?></div>
+            <?php endif ?>
+            <small class="form-text ml-0 text-secondary">Le code se trouve dans le fichier <code>code_secret.p</code> dans le dossier racine du site.</small>
+        </div>
+
         <br>
         <h3>Nouveau compte admin</h3>
         <br>

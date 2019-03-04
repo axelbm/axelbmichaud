@@ -14,7 +14,7 @@ abstract class Form {
 
         foreach ($_POST as $key => $value)
             if (\property_exists($this, $key))
-                $this->$key = $value;
+                $this->$key = trim($value);
         // $this->parseProprietes();
 
         // foreach ($this->getProprietes() as $key => $prop) {

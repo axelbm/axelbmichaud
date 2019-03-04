@@ -14,22 +14,10 @@ require "config_site.php";
 require COREROOT."AutoLoader.php";
 spl_autoload_register("core\AutoLoader::loader");
 
-// Connection a la base de données a l'aide des configs
-// if ($config = \core\Config::charger("database.p")) {
-    try {
-        core\Database::connect(DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
-    } catch (\Throwable $th) {
-        // core\MainControleur::executer("ConnexionDatabase", [], true);
-        core\MainControleur::executerErreur(new \Exception("Base de données inaccessible...", 500));
-    }
-// }
 
 // Initialisation de la session
 session_start();
 core\Session::initializer();
-
-// Analyse du formulaire
-core\MainForm::trouverForm();
 
 // Extrait les paramètres du url
 $params = explode('/', $_GET['params']);
@@ -38,6 +26,27 @@ $action = array_shift($params);
 if (end($params) == '') {
     array_pop($params);
 }
+
+
+// Connection a la base de données a l'aide des configs
+if ($config = \core\Config::charger("database.p")) {
+    try {
+        core\Database::connect($config);
+    } catch (\Throwable $th) {
+        // core\MainControleur::executer("ConnexionDatabase", [], true);
+        core\MainControleur::executerErreur(new \Exception("Base de données inaccessible...", 500));
+    }
+}
+else {
+    if ($action != "admin") {
+        core\MainControleur::rediriger("admin", ["database"]);
+    }
+}
+
+
+// Analyse du formulaire
+core\MainForm::trouverForm();
+
 
 // Si il n'y a aucun action, l'action par défaut va être chargé
 if ($action == "") {

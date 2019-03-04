@@ -27,13 +27,13 @@
 		</script>
 	</head>
 
-	<body class="bg-light noselect">
-		<center id="container">
+	<body class="bg-light">
+		<div id="container">
 			
 			<div id="content" class="container">
 				<?= $contenue ?>
 			</div>
-		</center>
+		</div>
 	</body>
 </html>
 

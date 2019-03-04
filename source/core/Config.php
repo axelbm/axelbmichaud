@@ -14,13 +14,23 @@ class Config {
     }
     
     static public function charger(string $chemin) : ?Config {
-        if (file_exists(ROOT.$chemin.'.ini')) {
+        if (self::exists($chemin)) {
             $data = \parse_ini_file(ROOT.$chemin.'.ini');
             
             return new self($data, $chemin);
         }
         
         return null;
+    }
+
+    static public function exists(string $chemin) : bool {
+        return file_exists(ROOT.$chemin.'.ini');
+    }
+
+    static public function supprimerFichier(string $chemin) {
+        if (self::exists($chemin)) {
+            unlink(ROOT.$chemin.'.ini');
+        }
     }
     
     /**
@@ -75,13 +85,25 @@ class Config {
     public function getData() : array {
         return $this->data;
     }
+
+    public function get(string $nom) {
+        if(isset($this->data[$nom]))
+            return $this->data[$nom];
+
+        return null;
+    }
     
+    public function set(string $nom, $valeur) {
+        $this->data[$nom] = $valeur;
+    }
+
     public function __get(string $nom) {
-        return $this->data[$nom];
+        if (isset($this->data[$nom]))
+            return $this->get($nom);
     }
     
     public function __set(string $nom, $valeur) {
-        $this->data[$nom] = $valeur;
+        $this->set($nom, $valeur);
     }
     
     public function sauvegarder(?string $chemin=null) {
@@ -94,6 +116,15 @@ class Config {
         }
         else {
             self::sauvegarderFichier($this);
+        }
+    }
+
+    public function supprimer() {
+        if (is_null($this->chemin)) {
+            throw new \Exception("Sauvegarde impossible, pas de chemin defini.");
+        }
+        else {
+            self::supprimerFichier($this->getChemin());
         }
     }
 }

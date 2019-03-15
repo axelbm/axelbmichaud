@@ -2,13 +2,21 @@
 
 namespace app\controleurs;
 
-use exceptions\Erreur404;
 use \app\modeles;
+use core\Controleur;
+use exceptions\Erreur404;
 
-class Blog extends \core\Controleur {
+class Blog extends Controleur {
 	use atraits\Utilisateur;
 
+	/** @var \app\dao\Blog */
+	private $dao;
+
+	
+
 	public function action(array $args) : ?\Exception {
+		$this->dao = new \app\dao\Blog();
+
 		if ($this->route("")) {
 			return $this->liste();
 		}
@@ -26,11 +34,17 @@ class Blog extends \core\Controleur {
 	}
 
 
-
+	
 	private function liste() : ?\Exception {
 		$vue = $this->genererVue("blog/liste");
+
+		$blogs = $this->dao->getListe();
+		$tags = $this->dao->getTags();
 		
 		$this->verifierUtilisateur();
+
+		$vue->set("blogs", $blogs);
+		$vue->set("tags", $tags);
 
 		$vue->afficher();
 
@@ -38,9 +52,11 @@ class Blog extends \core\Controleur {
 	}
 	
 	private function afficher(modeles\Blog $blog) : ?\Exception {
-		$vue = $this->genererVue("blog/afficher");
+	 	$vue = $this->genererVue("blog/afficher");
 			
 		$this->verifierUtilisateur();
+
+		$vue->set("blog", $blog);
 
 		$vue->afficher();
 

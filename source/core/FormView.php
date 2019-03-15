@@ -30,9 +30,9 @@ class FormView {
 
     public function erreur($cle) : ?string {
         if (isset($this->form)) {
-            if (\property_exists($this->form, $cle)) {
+            // if (\property_exists($this->form, $cle)) {
                 return $this->form->getErreur($cle);
-            }
+            // }
         }
 
         return null;

@@ -1,17 +1,13 @@
 
 
 <div class="bg-light col-lg-4 mx-auto mt-5 py-4 rounded shadow-lg" id="login-box">
-    <h2 class="text-center">Premiere Connexion</h2>
+    <h2 class="text-center">Connexion pour le panneau admin</h2>
 
     <hr>
 
     <?php $f = new \core\FormView("admin\\Connexion"); ?>
     <form action="" method="post" role="form" class="p-2" id="login-frm">
-
         <input type="hidden" name="formid" value="<?= $f->id ?>">
-        <br>
-        <h3>Nouveau compte admin</h3>
-        <br>
 
         <?php $e = $f->erreur("identifiant") ?>
         <div class="form-group" >

@@ -64,7 +64,9 @@ abstract class Controleur extends MainControleur {
             $opt = explode(":", $param);
 
             if (count($opt) == 1) {
-                if ($value != $opt[0]) {
+                $key = $opt[0];
+
+                if ($key != "?" && $key != $value) {
                     return false;
                 }
             }

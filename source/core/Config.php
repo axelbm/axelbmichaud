@@ -8,14 +8,14 @@ class Config {
     static public function sauvegarderFichier(Config $config) {
         $data = self::arr2ini($config->getData());
         
-        $f = fopen(ROOT.$config->getChemin().'.ini', "w");
+        $f = fopen(DATAROOT.$config->getChemin().'.ini', "w");
         fwrite($f, $data);
         fclose($f);
     }
     
     static public function charger(string $chemin) : ?Config {
         if (self::exists($chemin)) {
-            $data = \parse_ini_file(ROOT.$chemin.'.ini');
+            $data = \parse_ini_file(DATAROOT.$chemin.'.ini');
             
             return new self($data, $chemin);
         }
@@ -24,12 +24,12 @@ class Config {
     }
 
     static public function exists(string $chemin) : bool {
-        return file_exists(ROOT.$chemin.'.ini');
+        return file_exists(DATAROOT.$chemin.'.ini');
     }
 
     static public function supprimerFichier(string $chemin) {
         if (self::exists($chemin)) {
-            unlink(ROOT.$chemin.'.ini');
+            unlink(DATAROOT.$chemin.'.ini');
         }
     }
     

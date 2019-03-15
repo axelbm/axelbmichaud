@@ -8,3 +8,4 @@ define('PUBLICROOT', WEBROOT.'public/');
 define('APPROOT', ROOT.'app/');
 define('COREROOT', ROOT.'core/');
 define('VUEROOT', ROOT.'app/vues/');
+define('DATAROOT', ROOT.'data/');

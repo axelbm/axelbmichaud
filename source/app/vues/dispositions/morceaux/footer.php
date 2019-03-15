@@ -2,11 +2,9 @@
     <div class="container">
         <p>
             Créé par 
-            <a href="https://github.com/axelbm">Axel</a>, 
-            <a href="https://github.com/Fdazer">François</a> et 
-            <a href="https://github.com/h-ugues">Hugues</a>.
+            <a href="https://github.com/axelbm">Axel Michaud</a>
         </p>
 
-        <p>Accéder à la <a href="https://github.com/axelbm/gestion-reunion">source</a>.</p>
+        <p>Accéder à la <a href="https://github.com/axelbm/axelbmichaud">source</a>.</p>
     </div>
 </div>

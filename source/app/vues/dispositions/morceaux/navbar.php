@@ -5,9 +5,12 @@
 			<!-- Links -->
 			
 			<ul class="navbar-nav">
-				<a class="nav-item" href="<?=WEBROOT?>">
+				<!-- <a class="nav-item" href="<?=WEBROOT?>">
 					<img src="<?= PUBLICROOT.'images/logo blanc.png'?>" alt="Logo" style="height: 30px; margin: 5px 10px 5px 0px;">
-				</a>
+				</a> -->
+
+				<a href="<?=WEBROOT?>" class="navbar-brand">@axelbm</a>
+
 				<li class="nav-item">
 					<a class="nav-link text-light" href="<?=WEBROOT.'blog'?>">Blog</a>
 				</li>

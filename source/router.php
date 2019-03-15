@@ -29,9 +29,9 @@ if (end($params) == '') {
 
 
 // Connection a la base de données a l'aide des configs
-if ($config = \core\Config::charger("database.p")) {
+if ($cfg = app\outils\Database::charger()) {
     try {
-        core\Database::connect($config);
+        core\Database::connect($cfg->hote, $cfg->nom, $cfg->identifiant, $cfg->motDePasse);
     } catch (\Throwable $th) {
         // core\MainControleur::executer("ConnexionDatabase", [], true);
         core\MainControleur::executerErreur(new \Exception("Base de données inaccessible...", 500));
@@ -39,7 +39,7 @@ if ($config = \core\Config::charger("database.p")) {
 }
 else {
     if ($action != "admin") {
-        core\MainControleur::rediriger("admin", ["database"]);
+        core\MainControleur::rediriger("admin", ["database", "connexion"]);
     }
 }
 

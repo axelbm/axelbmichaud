@@ -28,10 +28,19 @@
 	</head>
 
 	<body class="bg-light">
-		<div id="container">
-			
-			<div id="content" class="container">
-				<?= $contenue ?>
+		<?php require "admin/navbar.php"; ?>
+
+		<div id="container" class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<?php require "admin/sidenav.php"; ?>
+				</div>
+				
+				<div id="content" class="card col-md-9">
+					<div class="card-body">
+						<?= $contenue ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>

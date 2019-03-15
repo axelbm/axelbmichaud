@@ -9,7 +9,7 @@
 
         <div class="projects-list">
             <div class="project col-md-6 shadow">
-                <img src="<?= PUBLICROOT."images/sample/1.jpg"?>">
+                <img src="<?= PUBLICROOT."images/sample/6.png"?>">
                 
                 <h2>Projet 1</h2>
 
@@ -25,6 +25,8 @@
             </div>
 
             <div class="project col-md-6 ml-auto shadow">
+                <img src="<?= PUBLICROOT."images/sample/5.png"?>">
+                
                 <h2>Projet 2</h2>
 
                 <p>

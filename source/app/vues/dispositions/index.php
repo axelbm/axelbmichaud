@@ -15,6 +15,8 @@
 		
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.0.0/trix.css">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.0.0/trix-core.js"></script>
+
+		<link rel="shortcut icon" href="<?=PUBLICROOT?>favicon.png"/>
 		
 		<?php foreach($vue->getScripts() as $fichier): ?>
 			<script src="<?=$fichier?>"></script>

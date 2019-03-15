@@ -14,12 +14,12 @@ class Acces extends \core\Controleur {
     
     public function action(array $args) : ?\Exception {
         if (Admin::config()) {
-            if ($this->route("acces/connexion")) {
+            if ($this->route("connexion")) {
                 return $this->connexion();
             }
         }
         else {
-            if ($this->route("acces/premiereconnexion")) {
+            if ($this->route("premiereconnexion")) {
                 return $this->premiereConnexion();
             }
             else {

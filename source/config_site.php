@@ -1,6 +1,6 @@
 <?php
 
-define('SITE_NOM', 'Gestion de réunions');
+define('SITE_NOM', 'axelbm');
 define('ACCUEIL', 'accueil');
 
 define('DB_HOST', 'localhost');

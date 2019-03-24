@@ -25,7 +25,7 @@
 				
 				
 				<li class="nav-item">
-					<a class="nav-link text-light" href="<?=WEBROOT?>apropos">À-propos</a>
+					<a class="nav-link text-light" href="<?=WEBROOT?>apropos">À propos</a>
 				</li>
 				
 				<li class="nav-item">
